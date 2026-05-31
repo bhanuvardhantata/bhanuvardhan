@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimization -->
+    <title>Bhanu Vardhan | 13x Certified Salesforce Architect & Agentforce Legend</title>
+    <meta name="description" content="Portfolio of Bhanu Vardhan, a 13x Salesforce Certified Application & Data Architect, Einstein Bots and Agentforce expert with 9+ years of engineering experience across AT&T, Deloitte, and Infosys.">
+    <meta name="keywords" content="Bhanu Vardhan, Salesforce Architect, Agentforce, Einstein Bots, OmniStudio, Vlocity, LWC, Apex, AT&T, Deloitte, Salesforce Portfolio, Hyderabad">
+    <meta name="author" content="Bhanu Vardhan">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bhanu Vardhan | 13x Certified Salesforce Architect & Agentforce Legend">
+    <meta property="og:description" content="Portfolio of Bhanu Vardhan, a 13x Salesforce Certified Application & Data Architect, Einstein Bots and Agentforce expert with 9+ years of experience across AT&T, Deloitte, and Infosys.">
+    
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar" class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Interactive Background Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Background Decorative Blobs -->
+    <div class="glow-blob blob-1" aria-hidden="true"></div>
+    <div class="glow-blob blob-2" aria-hidden="true"></div>
+
+    <!-- Floating Navigation Bar -->
+    <header id="main-header">
+        <div class="container">
+            <a href="#hero" class="logo" id="nav-logo" aria-label="Bhanu Vardhan Portfolio Home">
+                BHANU VARDHAN <span class="logo-dot"></span>
+            </a>
+            
+            <button class="mobile-nav-toggle" id="mobile-nav-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <nav id="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="LinkedIn.pdf" target="_blank" class="btn btn-secondary btn-sm" download="Bhanu_Vardhan_Resume" id="header-resume-btn"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light or dark mode">
+                            <i class="fa-solid fa-moon" id="theme-toggle-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tag" id="hero-tag-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Agentforce Legend | Double Star Ranger
+                    </span>
+                    <h1 class="hero-title" id="hero-main-title">
+                        Bhanu Vardhan
+                    </h1>
+                    <p class="hero-subtitle" id="hero-desc">
+                        13× Certified Salesforce Professional specializing in <span class="gradient-text-agentforce">Agentforce</span>, <span class="gradient-text-salesforce">OmniStudio (Vlocity)</span>, and <span class="gradient-text-gold">Salesforce Architecture</span>. Building intelligent automated workflows and scalable CRM solutions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary" id="hero-connect-btn">Let's Connect <i class="fa-solid fa-paper-plane"></i></a>
+                        <a href="LinkedIn.pdf" target="_blank" class="btn btn-secondary" id="hero-resume-btn" download="Bhanu_Vardhan_Resume"><i class="fa-solid fa-arrow-down"></i> Download Resume</a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://www.linkedin.com/in/bhanu-vardhan-ba04b8a9" target="_blank" aria-label="LinkedIn Profile" id="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:bhanu0957@gmail.com" aria-label="Send Email" id="social-email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual" id="hero-badge-visual">
+                    <div class="visual-shield">
+                        <i class="fa-solid fa-award visual-badge" aria-hidden="true"></i>
+                        <span class="visual-title">13X Certified</span>
+                        <span class="visual-subtitle">Salesforce Professional</span>
+                    </div>
+                    <div class="visual-orbit" aria-hidden="true">
+                        <div class="visual-node node-1"></div>
+                        <div class="visual-node node-2"></div>
+                        <div class="visual-node node-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Overview Section -->
+        <section class="stats" aria-label="Key Achievements">
+            <div class="container stats-grid">
+                <div class="stat-card glass-card fade-in-up" id="stat-experience">
+                    <div class="stat-number">9+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card glass-card fade-in-up" id="stat-certifications">
+                    <div class="stat-number">13x</div>
+                    <div class="stat-label">Salesforce Certified</div>
+                </div>
+                <div class="stat-card glass-card fade-in-up" id="stat-ranger">
+                    <div class="stat-number">Double</div>
+                    <div class="stat-label">Star Ranger</div>
+                </div>
+                <div class="stat-card glass-card fade-in-up" id="stat-agentforce">
+                    <div class="stat-number">Legend</div>
+                    <div class="stat-label">Agentforce Status</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">A track record of designing and delivering high-value Salesforce automation and CRM systems for global companies.</p>
+                
+                <div class="timeline" id="exp-timeline">
+                    <!-- AT&T Sr Specialist -->
+                    <div class="timeline-item fade-in-up" id="exp-att-sr">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jan 2025 - Present</span>
+                            <h3 class="timeline-role">Senior Specialist</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-mobile-screen-button"></i> AT&T</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</p>
+                            <p class="timeline-desc">Leading critical engineering implementations focusing on Agentforce, Einstein Bots, and deep Salesforce integration. Formulating next-generation intelligent conversational experiences and automation workflows to streamline business processes.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Agentforce</span>
+                                <span class="tech-tag">Einstein Bots</span>
+                                <span class="tech-tag">OmniStudio</span>
+                                <span class="tech-tag">Apex</span>
+                                <span class="tech-tag">Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AT&T Lead -->
+                    <div class="timeline-item fade-in-up" id="exp-att-lead">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Oct 2023 - Dec 2024</span>
+                            <h3 class="timeline-role">Specialist Development Lead</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-mobile-screen-button"></i> AT&T</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</p>
+                            <p class="timeline-desc">Spearheaded development squads implementing Salesforce Communications Cloud and OmniStudio (Vlocity) architectures. Designed reusable omni-channel UI components and micro-automation layers.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Communications Cloud</span>
+                                <span class="tech-tag">OmniStudio</span>
+                                <span class="tech-tag">LWC</span>
+                                <span class="tech-tag">Vlocity Developer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deloitte Consultant -->
+                    <div class="timeline-item fade-in-up" id="exp-deloitte-consultant">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">June 2022 - Oct 2023</span>
+                            <h3 class="timeline-role">Consultant</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-building-columns"></i> Deloitte</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</p>
+                            <p class="timeline-desc">Provided enterprise architectural solutions for global clients, defining solid data models and scalable governance patterns. Directed major end-to-end integration projects connecting Salesforce Core and external ERP nodes.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Data Architect</span>
+                                <span class="tech-tag">Application Architect</span>
+                                <span class="tech-tag">Integration Architect</span>
+                                <span class="tech-tag">Apex / LWC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deloitte Analyst -->
+                    <div class="timeline-item fade-in-up" id="exp-deloitte-analyst">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Nov 2020 - May 2022</span>
+                            <h3 class="timeline-role">Business Technology Analyst</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-building-columns"></i> Deloitte</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</p>
+                            <p class="timeline-desc">Programmed Apex triggers, Lightning Web Components (LWC), and Aura modules. Collaborated directly with business owners to translate standard business rules into elegant technological flows.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Apex</span>
+                                <span class="tech-tag">LWC</span>
+                                <span class="tech-tag">Aura Components</span>
+                                <span class="tech-tag">Salesforce CRM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infosys -->
+                    <div class="timeline-item fade-in-up" id="exp-infosys">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Apr 2018 - Nov 2020</span>
+                            <h3 class="timeline-role">System Engineer</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-network-wired"></i> Infosys</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Pune, India</p>
+                            <p class="timeline-desc">Developed and maintained standard CRM components using Apex and Visualforce. Implemented custom configurations, security models, data loading policies, and administrative operations.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Apex Development</span>
+                                <span class="tech-tag">Visualforce</span>
+                                <span class="tech-tag">Salesforce Admin</span>
+                                <span class="tech-tag">Data Loader</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Siemens -->
+                    <div class="timeline-item fade-in-up" id="exp-siemens">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">June 2017 - Jan 2018</span>
+                            <h3 class="timeline-role">Intern</h3>
+                            <div class="timeline-company"><i class="fa-solid fa-industry"></i> Siemens Building Technologies</div>
+                            <p class="timeline-location"><i class="fa-solid fa-location-dot"></i> Pune, India</p>
+                            <p class="timeline-desc">Supported standard engineering research and project planning within building automation, creating standard documentation and validating testing data sheets.</p>
+                            <div class="timeline-tags">
+                                <span class="tech-tag">Engineering</span>
+                                <span class="tech-tag">Automation Principles</span>
+                                <span class="tech-tag">Documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Dashboard Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Expertise Ecosystem</h2>
+                <p class="section-subtitle">A balanced breakdown of architectural capabilities, modern development skills, and next-generation automation tools.</p>
+                
+                <div class="skills-grid" id="skills-dashboard">
+                    <!-- AI & Automation -->
+                    <div class="skill-category glass-card fade-in-up" id="skill-cat-ai">
+                        <div class="skill-header">
+                            <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                            <h3>AI &amp; Automation</h3>
+                        </div>
+                        <ul class="skill-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> Agentforce</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Einstein Bots</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Tableau CRM / CRM Analytics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Salesforce Architecture -->
+                    <div class="skill-category glass-card fade-in-up" id="skill-cat-arch">
+                        <div class="skill-header">
+                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                            <h3>Salesforce Architecture</h3>
+                        </div>
+                        <ul class="skill-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> Application Architecture</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Data Architecture</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Integration Design &amp; Governance</li>
+                        </ul>
+                    </div>
+
+                    <!-- OmniStudio & Vlocity -->
+                    <div class="skill-category glass-card fade-in-up" id="skill-cat-vlocity">
+                        <div class="skill-header">
+                            <i class="fa-solid fa-cubes" aria-hidden="true"></i>
+                            <h3>OmniStudio &amp; Vlocity</h3>
+                        </div>
+                        <ul class="skill-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> OmniStudio (OmniScripts, FlexCards)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Communications Cloud</li>
+                            <li><i class="fa-solid fa-circle-check"></i> DataRaptors &amp; Integration Procedures</li>
+                        </ul>
+                    </div>
+
+                    <!-- Core Development -->
+                    <div class="skill-category glass-card fade-in-up" id="skill-cat-dev">
+                        <div class="skill-header">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                            <h3>Core Development</h3>
+                        </div>
+                        <ul class="skill-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> Apex Programming (Triggers, Classes)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Lightning Web Components (LWC)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> JavaScript &amp; Aura Frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Showcase Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Credential Portfolio</h2>
+                <p class="section-subtitle">A collection of 13 professional Salesforce qualifications illustrating extensive expertise in architecture, development, and consulting.</p>
+                
+                <div class="filter-tabs" id="cert-filter-controls">
+                    <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+                    <button class="filter-btn" data-filter="architect" id="filter-arch">Architect</button>
+                    <button class="filter-btn" data-filter="developer" id="filter-dev">Developer</button>
+                    <button class="filter-btn" data-filter="consultant" id="filter-consult">Consultant</button>
+                    <button class="filter-btn" data-filter="associate" id="filter-assoc">Associate</button>
+                </div>
+
+                <div class="certifications-grid" id="certs-grid">
+                    <!-- Cert 1: Application Architect -->
+                    <div class="cert-card cert-architect fade-in-up" data-category="architect" id="cert-app-arch">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-shield-halved cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Application Architect</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Architect</span>
+                    </div>
+
+                    <!-- Cert 2: Data Architect -->
+                    <div class="cert-card cert-architect fade-in-up" data-category="architect" id="cert-data-arch">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-database cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Data Architect</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Architect</span>
+                    </div>
+
+                    <!-- Cert 3: Sharing and Visibility Architect -->
+                    <div class="cert-card cert-architect fade-in-up" data-category="architect" id="cert-sharing-arch">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-lock cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Sharing &amp; Visibility Architect</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Architect</span>
+                    </div>
+
+                    <!-- Cert 4: Development Lifecycle Architect -->
+                    <div class="cert-card cert-architect fade-in-up" data-category="architect" id="cert-dev-arch">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-arrows-spin cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Development Lifecycle Designer</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Architect</span>
+                    </div>
+
+                    <!-- Cert 5: Platform App Builder -->
+                    <div class="cert-card cert-developer fade-in-up" data-category="developer" id="cert-app-builder">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-cube cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Platform App Builder</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Developer</span>
+                    </div>
+
+                    <!-- Cert 6: JavaScript Developer I -->
+                    <div class="cert-card cert-developer fade-in-up" data-category="developer" id="cert-js-dev">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-code cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">JavaScript Developer I</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Developer</span>
+                    </div>
+
+                    <!-- Cert 7: Platform Developer II -->
+                    <div class="cert-card cert-developer fade-in-up" data-category="developer" id="cert-pd2">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-terminal cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Platform Developer II</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Developer</span>
+                    </div>
+
+                    <!-- Cert 8: Platform Developer I -->
+                    <div class="cert-card cert-developer fade-in-up" data-category="developer" id="cert-pd1">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-code-branch cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Platform Developer I</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Developer</span>
+                    </div>
+
+                    <!-- Cert 9: OmniStudio Developer -->
+                    <div class="cert-card cert-developer fade-in-up" data-category="developer" id="cert-omni-dev">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-cubes cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">OmniStudio Developer</h3>
+                            <span class="cert-issuer">Salesforce / Vlocity</span>
+                        </div>
+                        <span class="cert-tier">Developer</span>
+                    </div>
+
+                    <!-- Cert 10: OmniStudio Consultant -->
+                    <div class="cert-card cert-consultant fade-in-up" data-category="consultant" id="cert-omni-consultant">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-users-gear cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">OmniStudio Consultant</h3>
+                            <span class="cert-issuer">Salesforce / Vlocity</span>
+                        </div>
+                        <span class="cert-tier">Consultant</span>
+                    </div>
+
+                    <!-- Cert 11: CRM Analytics Specialist -->
+                    <div class="cert-card cert-consultant fade-in-up" data-category="consultant" id="cert-crm-analytics">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-chart-pie cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">CRM Analytics / Tableau CRM</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Consultant</span>
+                    </div>
+
+                    <!-- Cert 12: Administrator -->
+                    <div class="cert-card cert-associate fade-in-up" data-category="associate" id="cert-admin">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-user-tie cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Certified Administrator</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Administrator</span>
+                    </div>
+
+                    <!-- Cert 13: Associate -->
+                    <div class="cert-card cert-associate fade-in-up" data-category="associate" id="cert-assoc-card">
+                        <div class="cert-badge-wrapper">
+                            <div class="cert-badge-bg"></div>
+                            <i class="fa-solid fa-graduation-cap cert-badge-icon"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">Certified Associate</h3>
+                            <span class="cert-issuer">Salesforce</span>
+                        </div>
+                        <span class="cert-tier">Associate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Initiate Contact</h2>
+                <p class="section-subtitle">Let's talk about building robust architectures, integrating AI agents, or automating business processes at scale.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-card" id="contact-email-card">
+                            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-details">
+                                <h4>Email Me</h4>
+                                <p><a href="mailto:bhanu0957@gmail.com" id="contact-email-link">bhanu0957@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" id="contact-linkedin-card">
+                            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://www.linkedin.com/in/bhanu-vardhan-ba04b8a9" target="_blank" id="contact-linkedin-link">linkedin.com/in/bhanu-vardhan</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" id="contact-location-card">
+                            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-map-pin"></i></div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Hyderabad, Telangana, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client-Side Validated Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form id="portfolio-contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="form-name" class="form-label">Full Name</label>
+                                <input type="text" id="form-name" class="form-control" placeholder="Enter your name" required minlength="2">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email" class="form-label">Email Address</label>
+                                <input type="email" id="form-email" class="form-control" placeholder="name@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-subject" class="form-label">Subject</label>
+                                <input type="text" id="form-subject" class="form-control" placeholder="How can I help you?" required minlength="3">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message" class="form-label">Message</label>
+                                <textarea id="form-message" class="form-control" placeholder="Detail your project or requirements..." required minlength="10"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="form-submit-btn" style="width: 100%;">
+                                Send Message <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            
+                            <div id="form-feedback-status" class="form-status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#hero" class="logo" id="footer-logo" aria-label="Bhanu Vardhan Portfolio Home">
+                BHANU VARDHAN <span class="logo-dot"></span>
+            </a>
+            
+            <ul class="footer-nav" aria-label="Footer Navigation">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/bhanu-vardhan-ba04b8a9" target="_blank" aria-label="LinkedIn Profile" id="footer-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:bhanu0957@gmail.com" aria-label="Send Email" id="footer-email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            
+            <p class="footer-copy">&copy; <span id="current-year">2026</span> Bhanu Vardhan. Built for performance and modern design.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
