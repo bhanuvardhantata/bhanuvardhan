@@ -4,40 +4,50 @@
    DESIGN TOKENS & VARIABLES
    ========================================== */
 :root {
-  /* Color Palette (HSL System) */
-  --bg-darker: hsl(224, 71%, 4%);
-  --bg-primary: hsl(222, 47%, 7%);
-  --bg-secondary: hsl(222, 47%, 11%);
-  --bg-tertiary: hsl(217, 33%, 16%);
-  
-  --bg-glass: hsla(222, 47%, 7%, 0.7);
-  --bg-glass-card: hsla(222, 47%, 11%, 0.45);
-  
-  /* Salesforce & Custom Accent Gradients */
+  /* Salesforce Brand Color Palette (HSL System) */
+  --bg-darker: hsl(220, 60%, 5%);
+  --bg-primary: hsl(218, 50%, 8%);
+  --bg-secondary: hsl(218, 45%, 12%);
+  --bg-tertiary: hsl(215, 35%, 17%);
+
+  --bg-glass: hsla(218, 50%, 8%, 0.75);
+  --bg-glass-card: hsla(218, 45%, 12%, 0.5);
+
+  /* Salesforce Official & Custom Accent Gradients */
   --accent-salesforce: hsl(207, 95%, 55%);
+  /* Salesforce Blue */
+  --sf-cloud-blue: hsl(207, 100%, 40%);
+  /* Darker Salesforce Blue */
   --accent-agentforce: hsl(263, 90%, 65%);
+  /* Agentforce Violet */
   --accent-gold: hsl(38, 92%, 50%);
+  /* Architect Gold */
   --accent-mint: hsl(152, 60%, 50%);
+  /* Success Green */
   --accent-red: hsl(354, 70%, 54%);
-  
+  /* Error Red */
+  --accent-astro: hsl(192, 90%, 50%);
+  /* Astro Cyan */
+
   /* Glow shadows */
-  --glow-agentforce: 0 0 25px hsla(263, 90%, 65%, 0.4);
-  --glow-salesforce: 0 0 25px hsla(207, 95%, 55%, 0.3);
-  --glow-gold: 0 0 25px hsla(38, 92%, 50%, 0.3);
-  
+  --glow-agentforce: 0 0 30px hsla(263, 90%, 65%, 0.4);
+  --glow-salesforce: 0 0 30px hsla(207, 95%, 55%, 0.35);
+  --glow-gold: 0 0 30px hsla(38, 92%, 50%, 0.35);
+  --glow-astro: 0 0 30px hsla(192, 90%, 50%, 0.3);
+
   --text-white: hsl(0, 0%, 100%);
   --text-primary: hsl(210, 40%, 98%);
   --text-muted: hsl(215, 20%, 70%);
   --text-dim: hsl(215, 15%, 55%);
-  
+
   --border-light: hsla(217, 33%, 17%, 0.8);
-  --border-glow: hsla(263, 90%, 65%, 0.15);
-  --border-glass: hsla(0, 0%, 100%, 0.06);
+  --border-glow: hsla(207, 95%, 55%, 0.15);
+  --border-glass: hsla(0, 0%, 100%, 0.07);
 
   /* Typography */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
-  
+
   /* Layout */
   --header-height: 80px;
   --header-height-scroll: 64px;
@@ -54,22 +64,23 @@ body.light-theme {
   --bg-primary: hsl(0, 0%, 100%);
   --bg-secondary: hsl(210, 25%, 95%);
   --bg-tertiary: hsl(210, 20%, 90%);
-  
+
   --bg-glass: hsla(210, 20%, 98%, 0.85);
   --bg-glass-card: hsla(0, 0%, 100%, 0.75);
-  
+
   --text-white: hsl(222, 47%, 11%);
   --text-primary: hsl(222, 47%, 15%);
   --text-muted: hsl(217, 19%, 35%);
   --text-dim: hsl(215, 15%, 50%);
-  
+
   --border-light: rgba(0, 0, 0, 0.08);
   --border-glass: rgba(0, 0, 0, 0.06);
-  --border-glow: hsla(263, 90%, 65%, 0.08);
-  
+  --border-glow: hsla(207, 95%, 55%, 0.1);
+
   --glow-agentforce: 0 8px 30px hsla(263, 90%, 65%, 0.12);
-  --glow-salesforce: 0 8px 30px hsla(207, 95%, 55%, 0.08);
-  --glow-gold: 0 8px 30px hsla(38, 92%, 50%, 0.08);
+  --glow-salesforce: 0 8px 30px hsla(207, 95%, 55%, 0.12);
+  --glow-gold: 0 8px 30px hsla(38, 92%, 50%, 0.1);
+  --glow-astro: 0 8px 30px hsla(192, 90%, 50%, 0.1);
 }
 
 body.light-theme .glow-blob {
@@ -82,7 +93,7 @@ body.light-theme #bg-canvas {
 
 body.light-theme .visual-shield {
   background: radial-gradient(circle, hsla(210, 20%, 98%, 0.9) 0%, hsla(210, 20%, 95%, 0.8) 100%);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1), inset 0 0 30px hsla(263, 90%, 65%, 0.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), inset 0 0 30px hsla(207, 95%, 55%, 0.05);
 }
 
 body.light-theme .visual-orbit {
@@ -94,13 +105,23 @@ body.light-theme .visual-title {
 }
 
 body.light-theme .tech-tag {
-  background: rgba(0,0,0,0.04);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+body.light-theme .cert-badge-img {
+  filter: none;
+}
+
+body.light-theme .achievement-badge-img {
+  filter: none;
 }
 
 /* ==========================================
    RESET & SYSTEM STYLES
    ========================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -109,7 +130,7 @@ body.light-theme .tech-tag {
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-agentforce) var(--bg-primary);
+  scrollbar-color: var(--accent-salesforce) var(--bg-primary);
 }
 
 body {
@@ -125,16 +146,19 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-darker);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--bg-tertiary);
   border-radius: 4px;
   border: 1px solid var(--bg-darker);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-agentforce);
+  background: var(--accent-salesforce);
 }
 
 /* ==========================================
@@ -159,7 +183,7 @@ body {
   line-height: 1.2;
   margin-bottom: 1.5rem;
   text-align: center;
-  background: linear-gradient(135deg, var(--text-white) 30%, var(--text-muted));
+  background: linear-gradient(135deg, var(--text-white) 30%, var(--accent-salesforce));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -210,14 +234,15 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-agentforce), hsl(245, 80%, 60%));
-  color: var(--text-white);
-  box-shadow: 0 4px 20px hsla(263, 90%, 65%, 0.35);
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--sf-cloud-blue));
+  color: white;
+  box-shadow: 0 4px 20px hsla(207, 95%, 55%, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px hsla(263, 90%, 65%, 0.5);
+  box-shadow: 0 8px 30px hsla(207, 95%, 55%, 0.55);
+  background: linear-gradient(135deg, hsl(207, 100%, 60%), var(--accent-salesforce));
 }
 
 .btn-secondary {
@@ -244,9 +269,9 @@ body {
 }
 
 .glass-card:hover {
-  border-color: hsla(263, 90%, 65%, 0.3);
+  border-color: hsla(207, 95%, 55%, 0.3);
   transform: translateY(-5px);
-  box-shadow: var(--glow-agentforce);
+  box-shadow: var(--glow-salesforce);
 }
 
 /* Background interactive grid */
@@ -273,7 +298,7 @@ body {
 .blob-1 {
   width: 500px;
   height: 500px;
-  background: var(--accent-agentforce);
+  background: var(--accent-salesforce);
   top: -100px;
   left: -200px;
 }
@@ -281,9 +306,18 @@ body {
 .blob-2 {
   width: 400px;
   height: 400px;
-  background: var(--accent-salesforce);
+  background: var(--accent-agentforce);
   bottom: 10%;
   right: -100px;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: var(--accent-astro);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* ==========================================
@@ -328,12 +362,25 @@ header .container {
   gap: 0.5rem;
 }
 
+.logo-sf-cloud {
+  width: 38px;
+  height: 26px;
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+  filter: drop-shadow(0 0 6px hsla(207, 95%, 55%, 0.4));
+}
+
+.logo:hover .logo-sf-cloud {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 12px hsla(207, 95%, 55%, 0.6));
+}
+
 .logo-dot {
   width: 8px;
   height: 8px;
-  background: var(--accent-agentforce);
+  background: var(--accent-salesforce);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-agentforce);
+  box-shadow: 0 0 10px var(--accent-salesforce);
 }
 
 nav ul {
@@ -364,7 +411,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-agentforce), var(--accent-salesforce));
+  background: linear-gradient(90deg, var(--accent-salesforce), var(--accent-agentforce));
   transition: var(--transition-smooth);
 }
 
@@ -399,8 +446,8 @@ nav a:hover::after {
 
 .theme-toggle-btn:hover {
   transform: scale(1.1);
-  border-color: var(--accent-agentforce);
-  box-shadow: var(--glow-agentforce);
+  border-color: var(--accent-salesforce);
+  box-shadow: var(--glow-salesforce);
 }
 
 .theme-toggle-btn i {
@@ -414,7 +461,7 @@ nav a:hover::after {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-agentforce), var(--accent-salesforce), var(--accent-gold));
+  background: linear-gradient(90deg, var(--accent-salesforce), var(--accent-agentforce), var(--accent-gold));
   z-index: 1001;
   width: 0%;
   transition: width 0.1s linear;
@@ -445,9 +492,9 @@ nav a:hover::after {
 }
 
 .hero-tag {
-  background: hsla(263, 90%, 65%, 0.1);
-  border: 1px solid hsla(263, 90%, 65%, 0.2);
-  color: hsl(263, 90%, 75%);
+  background: hsla(207, 95%, 55%, 0.1);
+  border: 1px solid hsla(207, 95%, 55%, 0.2);
+  color: hsl(207, 95%, 75%);
   padding: 0.5rem 1.2rem;
   border-radius: 50px;
   font-size: 0.85rem;
@@ -456,7 +503,7 @@ nav a:hover::after {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: inset 0 0 10px hsla(263, 90%, 65%, 0.05);
+  box-shadow: inset 0 0 10px hsla(207, 95%, 55%, 0.05);
 }
 
 .hero-title {
@@ -466,7 +513,7 @@ nav a:hover::after {
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--text-white) 40%, var(--text-muted));
+  background: linear-gradient(135deg, var(--text-white) 40%, var(--accent-salesforce));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -500,7 +547,7 @@ nav a:hover::after {
 }
 
 .hero-socials a:hover {
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
   transform: translateY(-2px);
 }
 
@@ -513,43 +560,49 @@ nav a:hover::after {
 }
 
 .visual-shield {
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle, hsla(222, 47%, 11%, 0.9) 0%, hsla(222, 47%, 7%, 0.8) 100%);
-  border: 1px solid var(--border-glass);
-  border-radius: 24%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, hsla(218, 45%, 14%, 0.95) 0%, hsla(218, 50%, 8%, 0.85) 100%);
+  border: 1px solid hsla(207, 95%, 55%, 0.15);
+  border-radius: 50%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 30px hsla(263, 90%, 65%, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 40px hsla(207, 95%, 55%, 0.05), 0 0 80px hsla(207, 95%, 55%, 0.08);
   animation: float 6s ease-in-out infinite;
 }
 
-.visual-badge {
-  font-size: 5rem;
-  background: linear-gradient(135deg, var(--accent-gold) 0%, #b45309 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px hsla(38, 92%, 50%, 0.3));
+.visual-badge-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 20px hsla(263, 90%, 65%, 0.3));
+  transition: var(--transition-bounce);
+}
+
+.visual-shield:hover .visual-badge-img {
+  transform: scale(1.08) rotate(5deg);
+  filter: drop-shadow(0 0 30px hsla(263, 90%, 65%, 0.5));
 }
 
 .visual-title {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 700;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   letter-spacing: 0.05em;
   color: var(--text-white);
-  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .visual-subtitle {
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
   margin-top: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -557,9 +610,9 @@ nav a:hover::after {
 
 .visual-orbit {
   position: absolute;
-  width: 380px;
-  height: 380px;
-  border: 1px dashed hsla(215, 20%, 70%, 0.15);
+  width: 400px;
+  height: 400px;
+  border: 1px dashed hsla(207, 95%, 55%, 0.12);
   border-radius: 50%;
   animation: spin 20s linear infinite;
   pointer-events: none;
@@ -574,17 +627,40 @@ nav a:hover::after {
   box-shadow: 0 0 12px var(--node-color);
 }
 
-.node-1 { top: 10%; left: 20%; --node-color: var(--accent-agentforce); }
-.node-2 { bottom: 15%; right: 10%; --node-color: var(--accent-salesforce); }
-.node-3 { top: 50%; right: -7px; --node-color: var(--accent-gold); }
+.node-1 {
+  top: 10%;
+  left: 20%;
+  --node-color: var(--accent-salesforce);
+}
+
+.node-2 {
+  bottom: 15%;
+  right: 10%;
+  --node-color: var(--accent-agentforce);
+}
+
+.node-3 {
+  top: 50%;
+  right: -7px;
+  --node-color: var(--accent-gold);
+}
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
 }
 
 @keyframes spin {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ==========================================
@@ -592,7 +668,7 @@ nav a:hover::after {
    ========================================== */
 .stats {
   padding: 4rem 0;
-  background: linear-gradient(180deg, transparent, var(--bg-secondary) 50%, transparent);
+  background: linear-gradient(180deg, transparent, hsla(207, 95%, 55%, 0.03) 50%, transparent);
 }
 
 .stats-grid {
@@ -614,9 +690,29 @@ nav a:hover::after {
   font-weight: 800;
   line-height: 1;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--text-white), var(--accent-agentforce));
+  background: linear-gradient(135deg, var(--text-white), var(--accent-salesforce));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.stat-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stat-badge-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: var(--transition-bounce);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.stat-card:hover .stat-badge-img {
+  transform: scale(1.12) rotate(-3deg);
 }
 
 .stat-label {
@@ -644,7 +740,7 @@ nav a:hover::after {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: linear-gradient(180deg, var(--border-glow), var(--accent-agentforce) 30%, var(--accent-salesforce) 70%, var(--border-glow));
+  background: linear-gradient(180deg, var(--border-glow), var(--accent-salesforce) 30%, var(--accent-agentforce) 70%, var(--border-glow));
   transform: translateX(-50%);
 }
 
@@ -670,7 +766,7 @@ nav a:hover::after {
   width: 18px;
   height: 18px;
   background: var(--bg-primary);
-  border: 3px solid var(--accent-agentforce);
+  border: 3px solid var(--accent-salesforce);
   border-radius: 50%;
   z-index: 10;
   transform: translateX(-50%);
@@ -687,8 +783,8 @@ nav a:hover::after {
 }
 
 .timeline-item:hover .timeline-dot {
-  background: var(--accent-agentforce);
-  box-shadow: 0 0 15px var(--accent-agentforce);
+  background: var(--accent-salesforce);
+  box-shadow: 0 0 15px var(--accent-salesforce);
   transform: translateX(-50%) scale(1.2);
 }
 
@@ -733,11 +829,35 @@ nav a:hover::after {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
   margin-bottom: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.company-logo {
+  width: 74px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.company-logo-att {
+  background-color: #fff;
+  width: 94px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 0px;
+  padding: 1px;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.timeline-item:hover .company-logo {
+  transform: scale(1.15);
 }
 
 .timeline-location {
@@ -765,9 +885,9 @@ nav a:hover::after {
 }
 
 .tech-tag {
-  background: hsla(215, 20%, 70%, 0.06);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
+  background: hsla(207, 95%, 55%, 0.08);
+  border: 1px solid hsla(207, 95%, 55%, 0.15);
+  color: hsl(207, 90%, 75%);
   padding: 0.25rem 0.65rem;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -797,7 +917,7 @@ nav a:hover::after {
 
 .skill-header i {
   font-size: 1.5rem;
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
 }
 
 .skill-header h3 {
@@ -827,7 +947,7 @@ nav a:hover::after {
 
 .skill-bullets li:hover {
   transform: translateX(5px);
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
 }
 
 .skill-bullets li i {
@@ -837,7 +957,7 @@ nav a:hover::after {
 }
 
 .skill-bullets li:hover i {
-  color: var(--accent-agentforce);
+  color: var(--accent-salesforce);
   transform: scale(1.1);
 }
 
@@ -866,11 +986,12 @@ nav a:hover::after {
   backdrop-filter: blur(8px);
 }
 
-.filter-btn:hover, .filter-btn.active {
-  color: var(--text-white);
-  border-color: var(--accent-agentforce);
-  background: var(--accent-agentforce);
-  box-shadow: 0 4px 15px hsla(263, 90%, 65%, 0.25);
+.filter-btn:hover,
+.filter-btn.active {
+  color: white;
+  border-color: var(--accent-salesforce);
+  background: var(--accent-salesforce);
+  box-shadow: 0 4px 15px hsla(207, 95%, 55%, 0.3);
 }
 
 .certifications-grid {
@@ -904,7 +1025,7 @@ nav a:hover::after {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, hsla(263, 90%, 65%, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, hsla(207, 95%, 55%, 0.06) 0%, transparent 70%);
   opacity: 0;
   transition: var(--transition-smooth);
   pointer-events: none;
@@ -916,45 +1037,31 @@ nav a:hover::after {
 
 .cert-card:hover {
   transform: translateY(-8px);
-  border-color: var(--card-hover-color, var(--accent-agentforce));
-  box-shadow: var(--card-glow-shadow, var(--glow-agentforce));
+  border-color: var(--card-hover-color, var(--accent-salesforce));
+  box-shadow: var(--card-glow-shadow, var(--glow-salesforce));
 }
 
 .cert-badge-wrapper {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
 }
 
-.cert-badge-bg {
-  position: absolute;
+.cert-badge-img {
   width: 100%;
   height: 100%;
-  background: var(--badge-bg, hsla(263, 90%, 65%, 0.1));
-  border-radius: 50%;
-  border: 1px solid var(--badge-border, hsla(263, 90%, 65%, 0.2));
+  object-fit: contain;
   transition: var(--transition-bounce);
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
 }
 
-.cert-card:hover .cert-badge-bg {
-  transform: scale(1.1) rotate(15deg);
-  background: var(--badge-bg-hover, hsla(263, 90%, 65%, 0.18));
-}
-
-.cert-badge-icon {
-  font-size: 2.2rem;
-  color: var(--badge-color, var(--accent-agentforce));
-  z-index: 2;
-  transition: var(--transition-bounce);
-}
-
-.cert-card:hover .cert-badge-icon {
-  transform: scale(1.1);
-  color: var(--badge-color-hover, var(--text-white));
+.cert-card:hover .cert-badge-img {
+  transform: scale(1.12) rotate(5deg);
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
 }
 
 .cert-info {
@@ -984,9 +1091,9 @@ nav a:hover::after {
   font-weight: 700;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
-  background: var(--tier-bg, hsla(263, 90%, 65%, 0.15));
-  color: var(--tier-color, hsl(263, 90%, 75%));
-  border: 1px solid var(--tier-border, hsla(263, 90%, 65%, 0.2));
+  background: var(--tier-bg, hsla(207, 95%, 55%, 0.15));
+  color: var(--tier-color, hsl(207, 95%, 75%));
+  border: 1px solid var(--tier-border, hsla(207, 95%, 55%, 0.2));
 }
 
 /* Color Themes for Certification Cards */
@@ -1016,7 +1123,7 @@ nav a:hover::after {
   --card-glow-shadow: var(--glow-salesforce);
 }
 
-.cert-consultant {
+.cert-specialist {
   --badge-bg: hsla(263, 90%, 65%, 0.08);
   --badge-border: hsla(263, 90%, 65%, 0.18);
   --badge-bg-hover: hsla(263, 90%, 65%, 0.15);
@@ -1027,6 +1134,19 @@ nav a:hover::after {
   --tier-border: hsla(263, 90%, 65%, 0.2);
   --card-hover-color: var(--accent-agentforce);
   --card-glow-shadow: var(--glow-agentforce);
+}
+
+.cert-consultant {
+  --badge-bg: hsla(192, 90%, 50%, 0.08);
+  --badge-border: hsla(192, 90%, 50%, 0.18);
+  --badge-bg-hover: hsla(192, 90%, 50%, 0.15);
+  --badge-color: var(--accent-astro);
+  --badge-color-hover: hsl(192, 90%, 60%);
+  --tier-bg: hsla(192, 90%, 50%, 0.12);
+  --tier-color: hsl(192, 90%, 70%);
+  --tier-border: hsla(192, 90%, 50%, 0.2);
+  --card-hover-color: var(--accent-astro);
+  --card-glow-shadow: var(--glow-astro);
 }
 
 .cert-associate {
@@ -1040,6 +1160,116 @@ nav a:hover::after {
   --tier-border: hsla(152, 60%, 50%, 0.2);
   --card-hover-color: var(--accent-mint);
   --card-glow-shadow: 0 0 25px hsla(152, 60%, 50%, 0.25);
+}
+
+/* ==========================================
+   ACHIEVEMENTS SECTION
+   ========================================== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, hsla(263, 90%, 65%, 0.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  pointer-events: none;
+}
+
+.achievement-card:hover::before {
+  opacity: 1;
+}
+
+.achievement-badge-wrapper {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.achievement-badge-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent-salesforce), var(--accent-agentforce), var(--accent-gold), var(--accent-salesforce));
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.achievement-card:hover .achievement-badge-wrapper::after {
+  opacity: 0.4;
+}
+
+.achievement-badge-wrapper.achievement-badge-banner {
+  width: 100%;
+  height: auto;
+  max-width: 360px;
+  border-radius: 12px;
+}
+
+.achievement-badge-wrapper.achievement-badge-banner::after {
+  border-radius: 16px;
+}
+
+.achievement-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: var(--transition-bounce);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+}
+
+.achievement-badge-img.achievement-banner-img {
+  border-radius: 12px;
+  height: auto;
+}
+
+.achievement-card:hover .achievement-badge-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.45));
+}
+
+.achievement-info {
+  max-width: 320px;
+}
+
+.achievement-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--text-white) 40%, var(--accent-agentforce));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achievement-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* ==========================================
@@ -1066,19 +1296,26 @@ nav a:hover::after {
   border-radius: 12px;
   background: var(--bg-glass-card);
   border: 1px solid var(--border-glass);
+  transition: var(--transition-smooth);
+}
+
+.contact-card:hover {
+  border-color: hsla(207, 95%, 55%, 0.25);
+  transform: translateX(5px);
 }
 
 .contact-icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: hsla(263, 90%, 65%, 0.1);
-  border: 1px solid hsla(263, 90%, 65%, 0.2);
-  color: var(--accent-agentforce);
+  background: hsla(207, 95%, 55%, 0.1);
+  border: 1px solid hsla(207, 95%, 55%, 0.2);
+  color: var(--accent-salesforce);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 .contact-details h4 {
@@ -1143,8 +1380,8 @@ nav a:hover::after {
 
 .form-control:focus {
   outline: none;
-  border-color: var(--accent-agentforce);
-  box-shadow: 0 0 10px hsla(263, 90%, 65%, 0.2);
+  border-color: var(--accent-salesforce);
+  box-shadow: 0 0 10px hsla(207, 95%, 55%, 0.2);
   background: var(--bg-secondary);
 }
 
@@ -1207,6 +1444,8 @@ footer {
   display: flex;
   gap: 2rem;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-nav a {
@@ -1249,50 +1488,54 @@ footer {
     gap: 3rem;
     text-align: center;
   }
-  
+
   .hero-content {
     align-items: center;
   }
-  
+
   .hero-cta {
     justify-content: center;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .timeline::before {
     left: 2rem;
   }
-  
+
   .timeline-item {
     width: 100%;
     padding: 1.5rem 1rem 1.5rem 4rem;
     text-align: left;
   }
-  
+
   .timeline-item:nth-child(odd) {
     left: 0;
     text-align: left;
   }
-  
+
   .timeline-item:nth-child(even) {
     left: 0;
   }
-  
+
   .timeline-dot {
     left: 2rem !important;
     right: auto !important;
   }
-  
+
   .timeline-item:nth-child(odd) .timeline-tags {
     justify-content: flex-start;
   }
-  
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1300,7 +1543,7 @@ footer {
   header {
     height: 64px;
   }
-  
+
   nav {
     position: fixed;
     top: 64px;
@@ -1316,35 +1559,44 @@ footer {
     transition: var(--transition-smooth);
     z-index: 999;
   }
-  
+
   nav.active {
     transform: translateX(0);
   }
-  
+
   nav ul {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
   }
-  
+
   nav a {
     font-size: 1.25rem;
   }
-  
+
   .mobile-nav-toggle {
     display: block;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .stat-card {
     padding: 1.5rem;
   }
-  
+
   .section {
     padding: 5rem 0;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-badge {
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -1356,11 +1608,11 @@ footer {
     transition-duration: 0s !important;
     scroll-behavior: auto !important;
   }
-  
+
   .visual-shield {
     animation: none !important;
   }
-  
+
   #bg-canvas {
     display: none;
   }

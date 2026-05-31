@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.density = Math.random() * 20 + 2;
                 
                 // Color gradient (Salesforce blue vs Agentforce violet)
-                const isViolet = Math.random() > 0.4;
-                this.color = isViolet ? 'rgba(124, 58, 237, 0.25)' : 'rgba(1, 118, 211, 0.2)';
+                const isSfBlue = Math.random() > 0.35;
+                this.color = isSfBlue ? 'rgba(1, 118, 211, 0.25)' : 'rgba(124, 58, 237, 0.18)';
             }
 
             draw() {
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     if (dist < 100) {
                         const alpha = (100 - dist) / 100 * 0.08;
-                        ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
+                        ctx.strokeStyle = `rgba(1, 118, 211, ${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
