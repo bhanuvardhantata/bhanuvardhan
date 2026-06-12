@@ -116,6 +116,22 @@ body.light-theme .achievement-badge-img {
   filter: none;
 }
 
+body.light-theme .chatbot-panel {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .chat-message.bot {
+  background: hsla(210, 25%, 93%, 0.9);
+}
+
+body.light-theme .project-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .testimonial-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
 /* ==========================================
    RESET & SYSTEM STYLES
    ========================================== */
@@ -140,6 +156,28 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-salesforce);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 10000;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }
 
 /* Custom Scrollbar */
@@ -894,8 +932,174 @@ nav a:hover::after {
   font-weight: 600;
 }
 
+/* Impact Bullets (Experience Section Enhancement) */
+.impact-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.impact-list li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+  transition: var(--transition-smooth);
+  border-left: 2px solid transparent;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+
+.impact-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+}
+
+.impact-list li:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+  border-left-color: var(--accent-salesforce);
+}
+
+.impact-list li strong {
+  color: var(--accent-salesforce);
+  font-weight: 600;
+}
+
+.timeline-item:nth-child(odd) .impact-list {
+  text-align: left;
+}
+
 /* ==========================================
-   SKILLS DASHBOARD
+   FEATURED PROJECTS SECTION
+   ========================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-glass);
+  border-left: 4px solid var(--project-accent, var(--accent-salesforce));
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, hsla(207, 95%, 55%, 0.04) 0%, transparent 70%);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--project-accent, var(--accent-salesforce));
+  box-shadow: 0 0 25px hsla(207, 95%, 55%, 0.15);
+}
+
+.project-card--violet {
+  --project-accent: var(--accent-agentforce);
+}
+
+.project-card--gold {
+  --project-accent: var(--accent-gold);
+}
+
+.project-card--cyan {
+  --project-accent: var(--accent-astro);
+}
+
+.project-card--blue {
+  --project-accent: var(--accent-salesforce);
+}
+
+.project-client {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--project-accent, var(--accent-salesforce));
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.project-outcome {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: hsla(152, 60%, 50%, 0.08);
+  border: 1px solid hsla(152, 60%, 50%, 0.15);
+  color: hsl(152, 60%, 70%);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-outcome i {
+  color: var(--accent-mint);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+/* ==========================================
+   SKILLS DASHBOARD (Enhanced with Bars)
    ========================================== */
 .skills-grid {
   display: grid;
@@ -927,38 +1131,92 @@ nav a:hover::after {
   color: var(--text-white);
 }
 
-.skill-bullets {
-  list-style: none;
+.skill-bars-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
-.skill-bullets li {
+.skill-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-bar-name {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: var(--transition-smooth);
 }
 
-.skill-bullets li:hover {
-  transform: translateX(5px);
-  color: var(--accent-salesforce);
+.skill-bar-percent {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--skill-accent, var(--accent-salesforce));
+  min-width: 36px;
+  text-align: right;
 }
 
-.skill-bullets li i {
-  color: var(--accent-mint);
-  font-size: 1.1rem;
-  transition: var(--transition-smooth);
+.skill-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
 }
 
-.skill-bullets li:hover i {
-  color: var(--accent-salesforce);
-  transform: scale(1.1);
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--skill-accent, var(--accent-salesforce)), var(--skill-accent-end, var(--accent-agentforce)));
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.skill-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25));
+  border-radius: 0 4px 4px 0;
+}
+
+.skill-bar-fill.animate {
+  width: var(--target-width);
+}
+
+/* Skill category color variants */
+.skill-category--ai {
+  --skill-accent: var(--accent-agentforce);
+  --skill-accent-end: hsl(280, 80%, 70%);
+}
+
+.skill-category--arch {
+  --skill-accent: var(--accent-gold);
+  --skill-accent-end: hsl(28, 85%, 55%);
+}
+
+.skill-category--omni {
+  --skill-accent: var(--accent-astro);
+  --skill-accent-end: var(--accent-salesforce);
+}
+
+.skill-category--dev {
+  --skill-accent: var(--accent-salesforce);
+  --skill-accent-end: var(--sf-cloud-blue);
 }
 
 /* ==========================================
@@ -1163,6 +1421,123 @@ nav a:hover::after {
 }
 
 /* ==========================================
+   CERTIFICATIONS TIMELINE
+   ========================================== */
+.cert-timeline-wrapper {
+  margin-bottom: 4rem;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-salesforce) var(--bg-secondary);
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cert-timeline-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cert-timeline-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.cert-timeline-wrapper::-webkit-scrollbar-thumb {
+  background: var(--accent-salesforce);
+  border-radius: 3px;
+}
+
+.cert-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-width: max-content;
+  padding: 1rem 2rem 2rem;
+  position: relative;
+}
+
+.cert-timeline::before {
+  content: '';
+  position: absolute;
+  top: 68px;
+  left: 2rem;
+  right: 2rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-salesforce), var(--accent-agentforce), var(--accent-gold), var(--accent-astro));
+  border-radius: 2px;
+}
+
+.cert-milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  padding: 0 0.75rem;
+  position: relative;
+  cursor: default;
+}
+
+.cert-milestone-date {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-salesforce);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.cert-milestone-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--milestone-color, var(--accent-salesforce));
+  border: 3px solid var(--bg-darker);
+  position: relative;
+  z-index: 2;
+  transition: var(--transition-bounce);
+  box-shadow: 0 0 0 3px var(--milestone-color, var(--accent-salesforce));
+}
+
+.cert-milestone:hover .cert-milestone-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 20px var(--milestone-color, var(--accent-salesforce));
+}
+
+.cert-milestone-name {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.75rem;
+  line-height: 1.3;
+  max-width: 110px;
+  transition: var(--transition-smooth);
+}
+
+.cert-milestone:hover .cert-milestone-name {
+  color: var(--text-white);
+}
+
+.cert-milestone--gold .cert-milestone-dot {
+  --milestone-color: var(--accent-gold);
+}
+
+.cert-milestone--blue .cert-milestone-dot {
+  --milestone-color: var(--accent-salesforce);
+}
+
+.cert-milestone--violet .cert-milestone-dot {
+  --milestone-color: var(--accent-agentforce);
+}
+
+.cert-milestone--cyan .cert-milestone-dot {
+  --milestone-color: var(--accent-astro);
+}
+
+/* ==========================================
    ACHIEVEMENTS SECTION
    ========================================== */
 .achievements-grid {
@@ -1270,6 +1645,333 @@ nav a:hover::after {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* ==========================================
+   TESTIMONIALS SECTION
+   ========================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card:hover {
+  border-color: hsla(207, 95%, 55%, 0.3);
+  transform: translateY(-5px);
+  box-shadow: var(--glow-salesforce);
+}
+
+.testimonial-quote-icon {
+  font-size: 3rem;
+  color: hsla(207, 95%, 55%, 0.12);
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  pointer-events: none;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-stars i {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonial-author-info h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.15rem;
+}
+
+.testimonial-author-info p {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* ==========================================
+   CHATBOT WIDGET
+   ========================================== */
+.chatbot-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 25px hsla(207, 95%, 55%, 0.5);
+  transition: var(--transition-bounce);
+}
+
+.chatbot-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 35px hsla(207, 95%, 55%, 0.65);
+}
+
+.chatbot-fab::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+  z-index: -1;
+  opacity: 0.4;
+  animation: chatbot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes chatbot-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0; }
+}
+
+.chatbot-panel {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2rem;
+  width: 380px;
+  max-height: 520px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.chatbot-panel.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, hsla(207, 95%, 55%, 0.15), hsla(263, 90%, 65%, 0.1));
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.chatbot-header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.chatbot-header-info h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.chatbot-header-info p {
+  font-size: 0.7rem;
+  color: var(--accent-mint);
+  font-weight: 600;
+}
+
+.chatbot-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  padding: 0.25rem;
+}
+
+.chatbot-close:hover {
+  color: var(--text-white);
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 280px;
+  max-height: 340px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-tertiary) transparent;
+}
+
+.chat-message {
+  max-width: 85%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: msgFadeIn 0.3s ease;
+}
+
+@keyframes msgFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--sf-cloud-blue));
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.chat-typing span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.chatbot-input-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+}
+
+.chatbot-input {
+  flex: 1;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-glass);
+  border-radius: 50px;
+  padding: 0.65rem 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.chatbot-input:focus {
+  border-color: var(--accent-salesforce);
+}
+
+.chatbot-input::placeholder {
+  color: var(--text-dim);
+}
+
+.chatbot-send {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-salesforce), var(--accent-agentforce));
+  border: none;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.chatbot-send:hover {
+  transform: scale(1.08);
 }
 
 /* ==========================================
@@ -1537,6 +2239,14 @@ footer {
   .achievements-grid {
     grid-template-columns: 1fr;
   }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1598,6 +2308,22 @@ footer {
     width: 28px;
     height: 28px;
   }
+
+  .chatbot-panel {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+    bottom: 5.5rem;
+    max-height: 70vh;
+  }
+
+  .chatbot-fab {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1615,5 +2341,13 @@ footer {
 
   #bg-canvas {
     display: none;
+  }
+
+  .chatbot-fab::before {
+    animation: none !important;
+  }
+
+  .skill-bar-fill {
+    transition: none !important;
   }
 }

@@ -359,4 +359,277 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1800);
         });
     }
+
+    // ==========================================
+    // 8. ANIMATED HERO STATS (COUNTER ANIMATION)
+    // ==========================================
+    const statNumbers = document.querySelectorAll('.stat-number[data-count-target]');
+
+    const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-count-target'), 10);
+        const suffix = el.getAttribute('data-count-suffix') || '';
+        const duration = 2000; // 2 seconds
+        const startTime = performance.now();
+
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        const updateCount = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            const current = Math.round(easedProgress * target);
+
+            el.textContent = current + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
+            }
+        };
+
+        requestAnimationFrame(updateCount);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    // ==========================================
+    // 9. ANIMATED SKILL BARS
+    // ==========================================
+    const skillBarFills = document.querySelectorAll('.skill-bar-fill');
+    const skillBarPercents = document.querySelectorAll('.skill-bar-percent[data-target]');
+
+    const animateSkillPercent = (el) => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        const updatePercent = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            const current = Math.round(easedProgress * target);
+
+            el.textContent = current + '%';
+
+            // Also update the aria-valuenow on the track
+            const track = el.closest('.skill-bar-item')?.querySelector('.skill-bar-track');
+            if (track) {
+                track.setAttribute('aria-valuenow', current);
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(updatePercent);
+            }
+        };
+
+        requestAnimationFrame(updatePercent);
+    };
+
+    const skillBarObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate the fill bar
+                entry.target.classList.add('animate');
+
+                // Find and animate the corresponding percentage text
+                const item = entry.target.closest('.skill-bar-item');
+                if (item) {
+                    const percentEl = item.querySelector('.skill-bar-percent[data-target]');
+                    if (percentEl) {
+                        animateSkillPercent(percentEl);
+                    }
+                }
+
+                skillBarObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -30px 0px'
+    });
+
+    skillBarFills.forEach(el => skillBarObserver.observe(el));
+
+    // ==========================================
+    // 10. AI CHATBOT WIDGET (Mock Responses)
+    // ==========================================
+    const chatbotFab = document.getElementById('chatbot-fab');
+    const chatbotPanel = document.getElementById('chatbot-panel');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    // Knowledge base for the AI assistant
+    const knowledgeBase = {
+        experience: "Bhanu Vardhan has 9+ years of professional experience in Salesforce development and architecture. He currently works as a Senior Specialist at AT&T India (Jan 2025 - Present). Previously, he was a Specialist Development Lead at AT&T (Oct 2023 - Dec 2024), Consultant at Deloitte (June 2022 - Oct 2023), Business Technology Analyst at Deloitte (Nov 2020 - May 2022), and System Engineer at Infosys (Apr 2018 - Nov 2020). He started his career as an Intern at Siemens Building Technologies (June 2017 - Jan 2018).",
+        certifications: "Bhanu holds 13 Salesforce certifications: Application Architect, Data Architect, Sharing & Visibility Architect, Identity & Access Mgmt Architect, Integration Architect, Development Lifecycle Designer, Platform App Builder, JavaScript Developer I, Platform Developer II, Platform Developer I, OmniStudio Developer, Agentforce Specialist, and OmniStudio Consultant.",
+        skills: "Bhanu's key skills include: AI & Automation (Agentforce, Einstein Bots, CRM Analytics), Salesforce Architecture (Application Architecture, Data Architecture, Integration Design & Governance), OmniStudio & Vlocity (OmniScripts, FlexCards, Communications Cloud, DataRaptors, Integration Procedures), and Core Development (Apex Programming, Lightning Web Components, JavaScript, Aura Frameworks).",
+        achievements: "Bhanu is an Agentblazer Legend (highest tier of the Agentblazer community program) and a Double Star Ranger on Salesforce Trailhead, representing extensive learning across hundreds of modules, projects, and superbadges.",
+        projects: "Key projects include: 1) AT&T Agentforce Intelligent Automation — Designed autonomous AI agents using Agentforce for customer service workflows. 2) AT&T Communications Cloud Migration — Led migration of legacy telecom workflows to Salesforce Communications Cloud. 3) Verizon Quote-to-Order CPQ Platform — Built a full CPQ management system using Vlocity and Communities. 4) M1 Mobile Self-Service Subscription Portal — Developed an end-to-end web platform for mobile subscription management using Vlocity, Heroku, and MuleSoft.",
+        education: "Bhanu holds a B.Tech degree from Andhra University (2017) with 88.2%.",
+        contact: "You can reach Bhanu via email at bhanu0957@gmail.com, on LinkedIn at linkedin.com/in/bhanu-vardhan-ba04b8a9, or on Salesforce Trailblazer at salesforce.com/trailblazer/bvardhan. He is based in Hyderabad, Telangana, India.",
+        current_role: "Bhanu currently works as a Senior Specialist at AT&T India, leading critical engineering implementations focusing on Agentforce, Einstein Bots, and deep Salesforce integration."
+    };
+
+    const findBestResponse = (question) => {
+        const q = question.toLowerCase();
+        
+        // Greeting patterns
+        if (/^(hi|hello|hey|howdy|greetings)/.test(q)) {
+            return "Hello! 👋 I'm Bhanu's AI assistant. I can tell you about his experience, certifications, skills, projects, and more. What would you like to know?";
+        }
+
+        // Experience questions
+        if (q.includes('experience') || q.includes('years') || q.includes('work') || q.includes('career') || q.includes('job') || q.includes('role')) {
+            return knowledgeBase.experience;
+        }
+
+        // Current role
+        if (q.includes('current') || q.includes('now') || q.includes('present') || q.includes('at&t') || q.includes('att')) {
+            return knowledgeBase.current_role;
+        }
+
+        // Certifications
+        if (q.includes('certif') || q.includes('cert') || q.includes('credential') || q.includes('qualified') || q.includes('13x') || q.includes('13 ')) {
+            return knowledgeBase.certifications;
+        }
+
+        // Skills
+        if (q.includes('skill') || q.includes('tech') || q.includes('expert') || q.includes('stack') || q.includes('know') || q.includes('speciali')) {
+            return knowledgeBase.skills;
+        }
+
+        // Agentforce specific
+        if (q.includes('agentforce') || q.includes('agent') || q.includes('ai') || q.includes('bot') || q.includes('einstein')) {
+            return "Bhanu is an Agentforce Legend — the highest tier of Salesforce's Agentblazer community program. He specializes in building and deploying autonomous AI agents using Agentforce and Einstein Bots, with expertise in designing intelligent conversational experiences and automation workflows. He's also a certified Agentforce Specialist.";
+        }
+
+        // Architecture
+        if (q.includes('architect')) {
+            return "Bhanu holds 6 Architect-level Salesforce certifications: Application Architect, Data Architect, Sharing & Visibility Architect, Identity & Access Management Architect, Integration Architect, and Development Lifecycle Designer. He specializes in designing scalable, secure, and high-performance Salesforce architectures.";
+        }
+
+        // OmniStudio / Vlocity
+        if (q.includes('omni') || q.includes('vlocity') || q.includes('flexcard') || q.includes('datarapter') || q.includes('communications cloud')) {
+            return "Bhanu is an expert in OmniStudio (Vlocity) development, holding both OmniStudio Developer and OmniStudio Consultant certifications. His specialties include OmniScripts, FlexCards, DataRaptors, Integration Procedures, and Salesforce Communications Cloud. He led the migration of 200+ legacy workflows to OmniStudio at AT&T.";
+        }
+
+        // Projects
+        if (q.includes('project') || q.includes('case stud') || q.includes('portfolio') || q.includes('deliver')) {
+            return knowledgeBase.projects;
+        }
+
+        // Achievements
+        if (q.includes('achieve') || q.includes('award') || q.includes('badge') || q.includes('trailblazer') || q.includes('ranger') || q.includes('legend')) {
+            return knowledgeBase.achievements;
+        }
+
+        // Education
+        if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('college') || q.includes('study') || q.includes('studied')) {
+            return knowledgeBase.education;
+        }
+
+        // Contact
+        if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('hire') || q.includes('connect') || q.includes('linkedin')) {
+            return knowledgeBase.contact;
+        }
+
+        // Location
+        if (q.includes('location') || q.includes('where') || q.includes('city') || q.includes('based') || q.includes('live')) {
+            return "Bhanu is based in Hyderabad, Telangana, India. He has previously worked in Pune, India during his time at Infosys and Siemens.";
+        }
+
+        // Resume
+        if (q.includes('resume') || q.includes('cv') || q.includes('download')) {
+            return "You can download Bhanu's resume by clicking the 'Download Resume' button in the hero section at the top of this page, or the Resume button in the navigation bar.";
+        }
+
+        // Thank you
+        if (q.includes('thank') || q.includes('thanks')) {
+            return "You're welcome! 😊 If you have any other questions about Bhanu's experience or skills, feel free to ask!";
+        }
+
+        // Fallback
+        return "Great question! I can help with information about Bhanu's experience, certifications (13x Salesforce certified), skills (Agentforce, OmniStudio, Architecture, LWC, Apex), projects, achievements, education, or contact details. What specifically would you like to know?";
+    };
+
+    const addMessage = (text, isUser = false) => {
+        const msgEl = document.createElement('div');
+        msgEl.classList.add('chat-message', isUser ? 'user' : 'bot');
+        msgEl.textContent = text;
+        chatbotMessages.appendChild(msgEl);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    };
+
+    const showTyping = () => {
+        const typingEl = document.createElement('div');
+        typingEl.classList.add('chat-typing');
+        typingEl.id = 'chat-typing-indicator';
+        typingEl.innerHTML = '<span></span><span></span><span></span>';
+        chatbotMessages.appendChild(typingEl);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    };
+
+    const removeTyping = () => {
+        const typingEl = document.getElementById('chat-typing-indicator');
+        if (typingEl) typingEl.remove();
+    };
+
+    const handleChatSend = () => {
+        const question = chatbotInput.value.trim();
+        if (!question) return;
+
+        addMessage(question, true);
+        chatbotInput.value = '';
+        
+        // Show typing indicator
+        showTyping();
+
+        // Simulate AI thinking delay
+        const delay = 800 + Math.random() * 800;
+        setTimeout(() => {
+            removeTyping();
+            const response = findBestResponse(question);
+            addMessage(response);
+        }, delay);
+    };
+
+    if (chatbotFab && chatbotPanel) {
+        chatbotFab.addEventListener('click', () => {
+            const isOpen = chatbotPanel.classList.toggle('open');
+            chatbotFab.innerHTML = isOpen 
+                ? '<i class="fa-solid fa-xmark"></i>' 
+                : '<i class="fa-solid fa-comments"></i>';
+            if (isOpen) {
+                chatbotInput.focus();
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotPanel.classList.remove('open');
+            chatbotFab.innerHTML = '<i class="fa-solid fa-comments"></i>';
+        });
+
+        chatbotSend.addEventListener('click', handleChatSend);
+
+        chatbotInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleChatSend();
+            }
+        });
+    }
 });
