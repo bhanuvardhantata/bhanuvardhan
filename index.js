@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Resume
         if (q.includes('resume') || q.includes('cv') || q.includes('download')) {
-            return "You can download Bhanu's resume by clicking the 'Download Resume' button in the hero section at the top of this page, or the Resume button in the navigation bar.";
+            return "Bhanu's resume is currently being updated and is not available for download directly at the moment. Please feel free to ask me about his experience, certifications, skills, or projects, or connect with him on LinkedIn!";
         }
 
         // Thank you
